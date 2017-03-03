@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Loot_Generator.DBClasses;
 
 namespace Loot_Generator
 {
@@ -51,11 +50,15 @@ namespace Loot_Generator
         //méthode temporaire de test
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            using (var db = new LootGeneratorContext())
+            using (var db = new LootGeneratorDB())
             {
-                foreach (Rarity R in db.Rarities)
+                var query = from R in db.Rarity
+                            orderby R.Id
+                            select R;
+
+                foreach (var item in query)
                 {
-                    MessageBox.Show(R.Name, R.Id.ToString());
+                    MessageBox.Show(item.Name, item.Id.ToString());
                 }
 
             }

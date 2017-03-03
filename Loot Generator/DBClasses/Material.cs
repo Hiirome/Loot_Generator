@@ -1,23 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-
-namespace Loot_Generator.DBClasses
+namespace Loot_Generator
 {
-    class Material
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("Material")]
+    public partial class Material
     {
-        [Key] internal int Id { get; set; }
-        internal string Name { get; set; }
-        internal bool IsWpnValid { get; set; }
-        internal bool IsArmValid { get; set; }
-        internal bool IsAccValid { get; set; }
-        internal float OffMultiplier { get; set; }
-        internal float DefMultiplier { get; set; }
-        internal float SpeedMultiplier { get; set; }
-        internal float ScoreMultiplier { get; set; }
-        internal int Weight { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long Id { get; set; }
+
+        [Required]
+        [StringLength(2147483647)]
+        public string Name { get; set; }
+
+        public decimal IsWpnValid { get; set; }
+
+        public decimal IsArmValid { get; set; }
+
+        public decimal IsAccValid { get; set; }
+
+        [Column(TypeName = "real")]
+        public double OffMultiplier { get; set; }
+
+        [Column(TypeName = "real")]
+        public double DefMultiplier { get; set; }
+
+        [Column(TypeName = "real")]
+        public double SpeedMultiplier { get; set; }
+
+        [Column(TypeName = "real")]
+        public double ScoreMultiplier { get; set; }
+
+        public long Weight { get; set; }
     }
 }

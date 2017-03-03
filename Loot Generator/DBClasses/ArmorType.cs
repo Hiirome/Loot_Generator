@@ -1,18 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Loot_Generator.DBClasses
+namespace Loot_Generator
 {
-    class ArmorType
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("ArmorType")]
+    public partial class ArmorType
     {
-        [Key] internal int Id { get; set; }
-        internal string Name { get; set; }
-        internal float BaseDamage { get; set; }
-        internal float BaseDefense { get; set; }
-        internal int Score { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long Id { get; set; }
+
+        [Required]
+        [StringLength(2147483647)]
+        public string Name { get; set; }
+
+        [Column(TypeName = "real")]
+        public double BaseDamage { get; set; }
+
+        [Column(TypeName = "real")]
+        public double BaseDefense { get; set; }
+
+        public long Score { get; set; }
     }
 }

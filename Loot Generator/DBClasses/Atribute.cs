@@ -1,25 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Loot_Generator.DBClasses
+namespace Loot_Generator
 {
-    class Atribute
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("Atribute")]
+    public partial class Atribute
     {
-        [Key] internal int Id { get; set; }
-        internal string Name { get; set; }
-        internal bool IsPrefix { get; set; }
-        internal bool IsWpnValid { get; set; }
-        internal bool IsArmValid { get; set; }
-        internal bool IsAccValid { get; set; }
-        internal float OffBonus { get; set; }
-        internal float DefBonus { get; set; }
-        internal float SpeedBonus { get; set; }
-        internal int EffectChance { get; set; }
-        internal int Score { get; set; }
-        internal int Weight { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long Id { get; set; }
+
+        [Required]
+        [StringLength(2147483647)]
+        public string Name { get; set; }
+
+        public decimal IsPrefix { get; set; }
+
+        public decimal IsWpnValid { get; set; }
+
+        public decimal IsArmValid { get; set; }
+
+        public decimal IsAccValid { get; set; }
+
+        [Column(TypeName = "real")]
+        public double OffBonus { get; set; }
+
+        [Column(TypeName = "real")]
+        public double DefBonus { get; set; }
+
+        [Column(TypeName = "real")]
+        public double SpeedBonus { get; set; }
+
+        public long EffectChance { get; set; }
+
+        public long Score { get; set; }
+
+        public long Weight { get; set; }
     }
 }

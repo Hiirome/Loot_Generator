@@ -66,6 +66,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="SQLite.CodeFirst, Version=1.2.4.16, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLite.CodeFirst.1.2.4.16\lib\net45\SQLite.CodeFirst.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -98,24 +102,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBClasses\Rarity.cs" />
+    <Compile Include="DBClasses\StatsAccessory.cs" />
+    <Compile Include="DBClasses\WeaponType.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
+    <Compile Include="DBClasses\AccessoryType.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBClasses\AccessoryType.cs" />
     <Compile Include="DBClasses\ArmorType.cs" />
     <Compile Include="DBClasses\Atribute.cs" />
     <Compile Include="DBClasses\Gemstone.cs" />
-    <Compile Include="DBClasses\LootGeneratorContext.cs" />
-    <Compile Include="DBClasses\Material.cs" />
-    <Compile Include="DBClasses\Rarity.cs" />
-    <Compile Include="DBClasses\StatsAccessory.cs" />
-    <Compile Include="DBClasses\WeaponType.cs" />
+    <Compile Include="DBClasses\LootGeneratorDB.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -123,6 +126,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBClasses\Material.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

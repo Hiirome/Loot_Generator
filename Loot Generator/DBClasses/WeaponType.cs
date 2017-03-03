@@ -1,19 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-
-namespace Loot_Generator.DBClasses
+namespace Loot_Generator
 {
-    class WeaponType
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("WeaponType")]
+    public partial class WeaponType
     {
-        [Key] internal int Id { get; set; }
-        internal string Name { get; set; }
-        internal float BaseDamage { get; set; }
-        internal float BaseDefense { get; set; }
-        internal float BaseAttackSpeed { get; set; }
-        internal int Score { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long Id { get; set; }
+
+        [Required]
+        [StringLength(2147483647)]
+        public string Name { get; set; }
+
+        [Column(TypeName = "real")]
+        public double BaseDamage { get; set; }
+
+        [Column(TypeName = "real")]
+        public double BaseDefense { get; set; }
+
+        [Column(TypeName = "real")]
+        public double BaseAttackSpeed { get; set; }
+
+        public long Score { get; set; }
     }
 }
