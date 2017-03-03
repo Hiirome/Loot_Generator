@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Loot_Generator.DBClasses
 {
     class StatsAccessory
     {
-        private int Id { get; set; }
-        private string Name { get; set; }
-        private bool IsPercentile { get; set; }
-        private int ScoreBonus { get; set; }
+        [Key] internal int Id { get; set; }
+        internal string Name { get; set; }
+        internal bool IsPercentile { get; set; }
+        internal int ScoreBonus { get; set; }
     }
 }

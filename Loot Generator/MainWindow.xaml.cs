@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Loot_Generator.DBClasses;
 
 namespace Loot_Generator
 {
@@ -45,6 +46,19 @@ namespace Loot_Generator
         private void accessoireGenNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsTextAllowed(e.Text);
+        }
+
+        //méthode temporaire de test
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new LootGeneratorContext())
+            {
+                foreach (Rarity R in db.Rarities)
+                {
+                    MessageBox.Show(R.Name, R.Id.ToString());
+                }
+
+            }
         }
     }
 }

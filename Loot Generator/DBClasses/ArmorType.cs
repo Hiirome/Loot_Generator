@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,10 @@ namespace Loot_Generator.DBClasses
 {
     class ArmorType
     {
-        private int Id { get; set; }
-        private string Name { get; set; }
-        private float BaseDamage { get; set; }
-        private float BaseDefense { get; set; }
-        private int Score { get; set; }
+        [Key] internal int Id { get; set; }
+        internal string Name { get; set; }
+        internal float BaseDamage { get; set; }
+        internal float BaseDefense { get; set; }
+        internal int Score { get; set; }
     }
 }

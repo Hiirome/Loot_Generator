@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Loot_Generator.DBClasses
 {
     class Rarity
     {
-        private int Id { get; set; }
-        private string Name { get; set; }
-        private int ScoreMin { get; set; }
-        private int ScoreMax { get; set; }
-        private string Color { get; set; }
+        [Key] internal int Id { get; set; }
+        internal string Name { get; set; }
+        internal int ScoreMin { get; set; }
+        internal int ScoreMax { get; set; }
+        internal string Color { get; set; }
     }
 }
